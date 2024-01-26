@@ -8,6 +8,7 @@ Functional:
 - [x] Like/dislike comments
 - [x] Auth with google/vk
 - [x] Realtime update comments
+- [ ] Tests
 
 Stack: `go, centrifugo, postgresql, vuejs`
 
