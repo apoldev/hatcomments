@@ -3,7 +3,7 @@
 Functional:
 - [x] Hierarchical comments
 - [x] Attachments (images, gifs via api)
-- [x] Edit comment by author or moderator
+- [x] Edit/delete comment by author or moderator
 - [x] Reply to comment
 - [x] Like/dislike comments
 - [x] Auth with google/vk
