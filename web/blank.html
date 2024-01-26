@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+    var oauthParams = {};
+    var params = {}, queryString = location.hash.substring(1),
+        regex = /([^&=]+)=([^&]*)/g, m;
+    while (m = regex.exec(queryString)) {
+        oauthParams[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+    }
+    window.opener.postMessage(oauthParams, "*")
+</script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+
+
+
+.hatcomments {
+  font-family: Rubik, Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+}
+
+.hatcomments {
+  line-height: normal;
+}
+
+.hatcomments a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #000000;
+}
+
+.hatcomments a:hover{
+  color: #4683d9!important;
+}
+
+.hatcomments .comments {
+  margin-top: 1rem;
+}
+
+.hatcomments .hatcomment-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+}
+
+.hatcomments .hatcomment-header .hatcomment-header-part{
+display: flex;
+}
+
+.hatcomments .hatcomment-header .action {
+  display: flex;
+}
+
+.hatcomments .hatcomment-header .action.action-signin {
+  cursor: pointer;
+}
+
+.hatcomments .hatcomment-header .action > *{
+  display: flex;
+}
+.hatcomments .hatcomment-header .action .icon {
+
+}
+
+.hatcomments .hatcomment-header .action.action-signin, .hatcomments .hatcomment-header .action.action-clients{
+  justify-content: center;
+  align-items: center;
+}
+.hatcomments .hatcomment-header .action .label{
+  color: #6c6c6c
+}
+
+.hatcomments .hatcomment-header .action.action-signin .icon, .hatcomment-header .action.action-clients .icon{
+  margin-right: 10px;
+}
+
+.hatcomments .hatcomment-header .action.action-signin.action-signout .icon{
+  transform: scale(-1, 1);
+}
+.hatcomments .hatcomment-header .icon{
+
+}
+.hatcomments .hatcomment-header .icon svg{
+  width: 24px;
+  height: 24px;
+}
+
+.hatcomments .hatcomment-header .icon svg{
+  width: 24px;
+  height: 24px;
+  fill: #a3a3a3;
+}
+
+.hatcomments .action .action-signin-avatar{
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.hatcomments .action .action-signin-avatar .label {
+  text-overflow: ellipsis;
+  display: inline-flex;
+}
+.hatcomments .action .action-signin-avatar img {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 30px;
+}
+
+
+.hatcomments .action .action-users {
+  position: relative;
+  height: 30px;
+  margin-left: 10px;
+}
+
+.hatcomments .action .action-users img {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 30px;
+  position: absolute;
+  //box-shadow: 0 0 5px 1px rgb(0 0 0 / 42%);
+}
+
+
+.hatcomments .hatcomments-info {
+  position: fixed;
+  background: #474747;
+  bottom: 15px;
+  left: 15px;
+  padding: 20px 35px;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.0975);
+
+  z-index: 9999;
+  border-radius: 6px;
+
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.hatcomments .hatcomments-info > * {
+  display: flex;
+}
+
+.hatcomments .hatcomments-info span {
+  color: white;
+
+}
+
+.hatcomments .hatcomments-info .hatcomments-info-count {
+  padding-left: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+.hatcomments .hatcomments-info .hatcomments-info-close svg{
+  width: 15px;
+  height: 15px;
+}
+.hatcomments .hatcomments-info .hatcomments-info-close{
+  position: absolute;
+  right: 4px;
+  top: 4px;
+
+  cursor: pointer;
+}

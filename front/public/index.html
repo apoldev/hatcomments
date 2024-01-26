@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+
+      <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500&display=swap" rel="stylesheet">
+
+      <style>
+          * {
+              margin: 0;
+              padding: 0;
+              font-family: "Rubik",sans-serif;
+              font-weight: 400;
+              color: #000000;
+          }
+      </style>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+
+    <div style="max-width: 800px">
+
+
+        <div id="hatcomments1" style="margin: 20px 20px 60px"></div>
+        <script defer>
+            (function(p, r, s){
+
+
+                var anchorRegex = /<a.*?>.*?<\/a>/gui
+                var regex = /([A-Z]{2,}[0-9]{6,}[A-Z]{2,}|[A-Z]{2}[0-9]{9}[A-Z]{2}|[A-Z]{2,}[0-9]{6,}|[0-9]{6,}[A-Z]{2,}|[0-9]{9,}).*?[\s\t\n\r]/gui
+                const comment = document.querySelector('#hatcomments1');
+                comment.addEventListener('click', e => {
+                    if(e.target.classList.value === "trackgo"){
+                        e.stopPropagation()
+                        e.preventDefault()
+                    }
+                });
+
+
+                window.hatCommentConfig = {
+                    project: p, room: r, selector: s,
+                    actions: {
+                        textTransformer: function(text){
+
+                            text = text + " ";
+                            var matches, output = [];
+
+                            var withoutAnchors = text.replace(anchorRegex, "")
+
+                            while (matches = regex.exec(withoutAnchors)) {
+                                output.push(matches[1]);
+                            }
+                            var i = 0;
+
+                            for(i = 0; i < output.length; i++){
+                                text = text.replace(output[i], '<a href="#" class="trackgo" data-track="'+output[i]+'">'+ output[i] +'</a>')
+                            }
+
+                            return text
+                        }
+                    }
+                }
+            })(1, document.location.href, "#hatcomments1");
+
+
+        </script>
+    </div>
+    <!-- built files will be auto injected -->
+
+  </body>
+</html>

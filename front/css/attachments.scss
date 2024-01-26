@@ -1,0 +1,50 @@
+.comment-attachments .attach-wrapper {
+  margin-top: 0;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 0.4rem;
+}
+
+.hatcomments .attach-wrapper .attach img {
+  margin: 0px 15px 0rem 0;
+  height: 80px;
+  border-radius: 4px;
+  transition: all .2s;
+  box-shadow: 0 0 5px 1px rgb(0 0 0 / 31%);
+}
+
+.hatcomments .attach-wrapper .attach {
+  z-index: 1;
+}
+.hatcomments .attach-wrapper .attach:hover {
+  z-index: 333;
+}
+
+.hatcomments .attach-wrapper .attach {
+  position: relative;
+}
+
+.hatcomments .attach-wrapper .attach .attach-delete{
+  position: absolute;
+  top: 4px;
+  right: 4px
+}
+
+.hatcomments .attach-wrapper .attach .attach-delete svg {
+  transition: all .2s;
+  fill: #f9562c;
+}
+
+.hatcomments .attach-wrapper .attach .attach-delete:hover svg {
+  transform: scale(1.1);
+}
+
+.comment-attachments .attach:hover img {
+  background-color: #fff;
+  border-color: #bdd6fa;
+  -webkit-box-shadow: 0 0 0 3px rgba(70, 131, 217, 0.4);
+  box-shadow: 0 0 0 3px rgba(70, 131, 217, 0.4);
+
+  // transform: scale(1.1);
+}
