@@ -1,0 +1,59 @@
+version: "3.7"
+
+volumes:
+  db:
+  storage:
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./build/Dockerfile
+    ports:
+      - "7777:8080"
+    environment:
+      PORT: '8080'
+      APP_URL: 'http://localhost:7777'
+      DB_HOST: 'db'
+      DB_PORT: '5432'
+      DB_USER: 'postgres'
+      DB_PASSWORD: 'example'
+      DB_NAME: 'postgres'
+      DB_TABLE_PREFIX: ''
+      CENTRIFUGO_APIURL: 'http://centrifugo:8000/api'
+      CENTRIFUGO_APIKEY: 'omhELj0biayBS3hWTo4S3rbcnPmocxBB'
+      HMAC_SECRET: 'f45b0d168f529a2e1d25bc6b'
+      GIN_MODE: 'release'
+
+    volumes:
+      - storage:/app/storage
+    depends_on:
+      db:
+        condition: service_healthy
+
+  centrifugo:
+    image: centrifugo/centrifugo:v4.1.4
+    volumes:
+      - ./configs/centrifugo-config.json:/centrifugo/config.json
+    command: centrifugo -c config.json
+    ports:
+      - 8001:8000
+    ulimits:
+      nofile:
+        soft: 65535
+        hard: 65535
+  db:
+    image: postgres:16-alpine3.19
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+    ports:
+      - 5432:5432
+    volumes:
+      - db:/var/lib/postgresql/data
+      - ./configs/postgres-init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready", "-d", "db_prod" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
